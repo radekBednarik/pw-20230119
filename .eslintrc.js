@@ -4,7 +4,11 @@ module.exports = {
     node: true,
     browser: true,
   },
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:playwright/playwright-test",
+  ],
   overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
