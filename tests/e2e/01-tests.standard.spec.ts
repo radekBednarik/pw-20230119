@@ -33,4 +33,21 @@ test.describe("homepage", () => {
 
     expect(response.status()).toBe(200);
   });
+
+  test("sending correctly filled contact form returns 200 OK", async () => {
+    const resPromise = homepage.page.waitForResponse(
+      "https://www.tesena.com/en"
+    );
+    await homepage.contactForm.fillAndSubmit(
+      "tester",
+      "test@test.cz",
+      "+420123456789",
+      "test message",
+      true
+    );
+    const response = await resPromise;
+    await homepage.page.waitForTimeout(10000);
+
+    expect(response.status()).toBe(200);
+  });
 });
