@@ -28,7 +28,7 @@ test.describe("homepage", () => {
     await homepage.consentBar.locatorConfirmAllButton.click();
     const response = await resPromise;
 
-    expect(response.status()).toBe(400);
+    expect(response.status()).toBe(200);
   });
 
   test("click on Career navigates to Career page", async () => {
