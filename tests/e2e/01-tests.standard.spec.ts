@@ -24,6 +24,13 @@ test.describe("homepage", () => {
     expect(career.page.url()).toBe(career.url);
   });
 
+  test("youtube video iframe on Career has title", async () => {
+    await career.visit();
+    expect(await career.locatorVideoFrameTitle.textContent()).not.toHaveLength(
+      0
+    );
+  });
+
   test("request to GA returns 200 OK", async () => {
     const resPromise = homepage.page.waitForResponse(
       /^https:\/\/www.google-analytics.com.*$/

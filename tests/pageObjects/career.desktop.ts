@@ -13,4 +13,8 @@ export class CareerDesktop extends BasePage {
     this.locatorVideoIframe = this.page.frameLocator("iframe");
     this.locatorVideoFrameTitle = this.locatorVideoIframe.locator("title");
   }
+
+  public async visit() {
+    return await super.visit(this.url);
+  }
 }
