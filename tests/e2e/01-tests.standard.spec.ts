@@ -46,7 +46,6 @@ test.describe("homepage", () => {
       true
     );
     const response = await resPromise;
-    await homepage.page.waitForTimeout(10000);
 
     expect(response.status()).toBe(200);
   });

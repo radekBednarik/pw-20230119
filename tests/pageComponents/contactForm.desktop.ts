@@ -34,10 +34,14 @@ export class ContactFormDesktop extends BasePage {
   ) {
     if (fake) {
       await this.page.route("https://www.tesena.com/en", (route) => {
-        route.fulfill({
-          status: 200,
-          body: JSON.stringify(formResponse),
-        });
+        if (route.request().method().toLowerCase() === "post") {
+          route.fulfill({
+            status: 200,
+            body: JSON.stringify(formResponse),
+          });
+        } else {
+          route.continue();
+        }
       });
     }
 
