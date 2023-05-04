@@ -32,9 +32,8 @@ test.describe("homepage", () => {
   });
 
   test("click on Career navigates to Career page", async () => {
-    const navPromise = homepage.page.waitForNavigation({ url: career.url });
     await homepage.header.locatorCareerItem.click();
-    await navPromise;
+    await career.page.waitForURL(career.url);
 
     expect(career.page.url()).toBe(career.url);
   });
